@@ -1,0 +1,58 @@
+create user
+	create user 
+	set password
+	set default shell - bash
+	create home directory
+	change home directory owner
+	set home directory
+
+manage bash login startup file
+	create .bashrc
+		source .bash_aliases
+		change prompt color - export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+		create .bash_aliases
+		alias ls color
+		alias back
+	
+silence CLI alert sound
+	silence tab completion bell (set bell-stype none on /etc/inputrc)
+
+Manage Built-in SWs:
+	manage vim startup file
+		create .vimrc
+		set vim visualbell (set visualbell on .vimrc)
+		set vim screen flash duration to 0 (set t_vb= on .vimrc)
+		
+	manage project directory
+		create project directory
+		
+	connect to remote git repo
+		create ssh key (ssh-keygen)
+		add ssh pub key to the remote git repo - bitbucket or github
+		start ssh agent (eval "$(ssh-agent)") + add ssh key (ssh-add <ssh_key>)	
+		or add host in config file:
+			"""
+			Host github.com
+				User git
+				IdentityFile <file path>
+			"""
+
+
+	manage ssh config for frequent ssh logins
+		create ssh key
+		add the pub key to the authorized_keys file on the target host 
+			send ssh pset bell-style noneset bell-style noneset bell-style noneset bell-styub key to the target host using username/password (ssh-copy-id) 
+
+
+Manage 3rd SWs:
+	update & upgrade apt
+	Postgres
+	Python
+	Java (SDKMAN)
+	Scala (SDKMAN)
+	sbt (SDKMAN)
+	vscode (install from Windows side and connect via remote)
+
+	
+	
+	
